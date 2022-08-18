@@ -24,8 +24,10 @@ public class EmployeePayrollDTO {
     private String companyName;
     @NotNull(message = "department cannot be empty")
     private String department;
-    @NotBlank(message = "email should not be empty")
+    @NotNull(message = "email should not be empty")
+    @Pattern(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$", message = "Invalid EmailId")
     private String emailId;
-    @NotBlank(message = "password cannot be null")
+    @NotNull(message = "password cannot be null")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%!]).{8,}$", message = "Invalid Password")
     private String password;
 }
